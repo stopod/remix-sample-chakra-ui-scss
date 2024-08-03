@@ -1,0 +1,49 @@
+.body {
+  min-height: 100vh;
+  display: flex;
+
+  .sidebar {
+    --tw-bg-opacity: 1;
+    background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+    width: 16.666667%;
+
+    .sidebarTitle {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      margin-bottom: 15px;
+    }
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 100vh;
+    width: 83.333333%;
+
+    .header {
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+      height: 4rem;
+      --tw-bg-opacity: 1;
+      background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+
+      .headerTitle {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+      }
+    }
+
+    .content {
+      flex-grow: 1;
+      margin-top: 4rem;
+      --tw-bg-opacity: 1;
+      background-color: rgb(254 249 195 / var(--tw-bg-opacity));
+
+      .fillterForm {
+        display: flex;
+      }
+    }
+  }
+}
