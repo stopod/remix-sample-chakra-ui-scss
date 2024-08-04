@@ -7,7 +7,7 @@ import { BasicTable } from "../components/organisms/table";
 import styles from "./styles/chakra.sample.module.scss";
 import { useState } from "react";
 
-export const action = async ({ params, request }: ActionFunctionArgs) => {
+export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
   console.log(formData.get("sample"));
   return redirect("/chakra/sample");
@@ -67,13 +67,19 @@ const accrodionItems = [
 export default function Sample() {
   const { posts } = useLoaderData<typeof loader>();
   const [selectedValue, setSelectedValue] = useState("all");
+  const [curPosts, setCurPosts] = useState(posts);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedValue(event.target.value);
   };
 
   const handleClick = () => {
-    console.log(selectedValue);
+    if (selectedValue === "all") {
+      setCurPosts(posts);
+    } else {
+      const filteredPosts = posts.filter((post) => post.userId === Number(selectedValue));
+      setCurPosts(filteredPosts);
+    }
   };
 
   const userIds = [...new Set(posts.map((post) => post.userId))];
@@ -100,7 +106,10 @@ export default function Sample() {
         {/* コンテンツ */}
         <div className={styles.content}>
           <div className={styles.fillterForm}>
-            <Select placeholder="all" onChange={handleChange} value={selectedValue}>
+            <Select onChange={handleChange} value={selectedValue}>
+              <option key={"all"} value={"all"} defaultChecked>
+                all
+              </option>
               {userIds.map((userId) => (
                 <option key={userId} value={userId}>
                   {userId}
@@ -111,7 +120,7 @@ export default function Sample() {
           </div>
           <BasicTable
             tableHeader={{ headers: ["userId", "id", "title", "body"] }}
-            tableRows={posts.map((post) => ({
+            tableRows={curPosts.map((post) => ({
               rows: [post.userId.toString(), post.id.toString(), post.title, post.body],
             }))}
           />

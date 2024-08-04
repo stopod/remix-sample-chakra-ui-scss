@@ -1,6 +1,7 @@
-import { Grid as ChakraGrid, GridItem } from "@chakra-ui/react";
+import { Grid as ChakraGrid, GridItem, useBoolean } from "@chakra-ui/react";
 
 export default function Grid() {
+  const [flag, setFlag] = useBoolean();
   return (
     <ChakraGrid
       templateAreas={`"header header"
@@ -20,6 +21,10 @@ export default function Grid() {
       </GridItem>
       <GridItem pl="2" bg="green.300" area={"main"}>
         Main
+        <>
+          <p>Boolean state: {flag.toString()}</p>
+          <button onClick={setFlag.toggle}>Click me to toggle the boolean value</button>
+        </>
       </GridItem>
       <GridItem pl="2" bg="blue.300" area={"footer"}>
         Footer
