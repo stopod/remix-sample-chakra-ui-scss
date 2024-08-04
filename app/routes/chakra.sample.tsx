@@ -1,11 +1,14 @@
-import { Button, Input, Select } from "@chakra-ui/react";
+import { Select } from "@chakra-ui/react";
 import type { ActionFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Form, redirect, useLoaderData } from "@remix-run/react";
+import { useState } from "react";
 import { LinkAccordion } from "../components/organisms/accordion";
 import { BasicTable } from "../components/organisms/table";
 import styles from "./styles/chakra.sample.module.scss";
-import { useState } from "react";
+
+import { DefaultButton } from "~/components/atoms/button";
+import { InputForm } from "~/components/molecuels/inputForm";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
@@ -90,10 +93,9 @@ export default function Sample() {
       <div className={styles.sidebar}>
         <h2 className={styles.sidebarTitle}>Sample Menu</h2>
         <Form method="post" className="flex">
-          <Input placeholder="sample input" bg={"white"} name="sample" />
-          <Button type="submit" bg={"aqua"}>
+          <InputForm placeholder="sample input" name="sample">
             Button
-          </Button>
+          </InputForm>
         </Form>
         <LinkAccordion accordionItems={accrodionItems} />
       </div>
@@ -106,7 +108,7 @@ export default function Sample() {
         {/* コンテンツ */}
         <div className={styles.content}>
           <div className={styles.fillterForm}>
-            <Select onChange={handleChange} value={selectedValue}>
+            <Select onChange={handleChange} value={selectedValue} w={"20%"} bg={"white"}>
               <option key={"all"} value={"all"} defaultChecked>
                 all
               </option>
@@ -116,7 +118,7 @@ export default function Sample() {
                 </option>
               ))}
             </Select>
-            <Button onClick={handleClick}>抽出</Button>
+            <DefaultButton onClick={handleClick}>抽出</DefaultButton>
           </div>
           <BasicTable
             tableHeader={{ headers: ["userId", "id", "title", "body"] }}
