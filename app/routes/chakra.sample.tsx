@@ -63,6 +63,9 @@ const accrodionItems = [
     links: [
       { linkTitle: "Link 1", href: "#" },
       { linkTitle: "Link 2", href: "#" },
+      { linkTitle: "Link 3", href: "#" },
+      { linkTitle: "Link 4", href: "#" },
+      { linkTitle: "Link 5", href: "#" },
     ],
   },
 ];
@@ -92,7 +95,7 @@ export default function Sample() {
       {/* サイド */}
       <div className={styles.sidebar}>
         <h2 className={styles.sidebarTitle}>Sample Menu</h2>
-        <Form method="post" className="flex">
+        <Form method="post">
           <InputForm placeholder="sample input" name="sample">
             Button
           </InputForm>
