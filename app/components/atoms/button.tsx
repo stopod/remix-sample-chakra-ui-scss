@@ -1,15 +1,16 @@
-import { Button } from "@chakra-ui/react";
+import { Button as ChakraButton } from "@chakra-ui/react";
 
-type DefaultButtonProps = {
+type ButtonProps = {
   children: React.ReactNode;
   type?: "submit" | "button" | "reset";
+  colorScheme?: "gray" | "blue";
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-export const DefaultButton = ({ children, type, onClick }: DefaultButtonProps) => {
+export const Button = ({ children, type, colorScheme, onClick }: ButtonProps) => {
   return (
-    <Button type={type} colorScheme="gray" onClick={onClick}>
+    <ChakraButton type={type} colorScheme={colorScheme} onClick={onClick}>
       {children}
-    </Button>
+    </ChakraButton>
   );
 };

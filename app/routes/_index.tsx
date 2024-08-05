@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import styles from "./styles/_index.module.scss";
-import { Link } from "~/components/atoms/link";
+import { Link } from "~/components/atoms/Link";
 
 export const meta: MetaFunction = () => {
   return [{ title: "New Remix App" }, { name: "description", content: "Welcome to Remix!" }];

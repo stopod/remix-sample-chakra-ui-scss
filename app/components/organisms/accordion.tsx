@@ -1,5 +1,5 @@
 import { Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Box } from "@chakra-ui/react";
-import { Link } from "../atoms/link";
+import { Link } from "../atoms/Link";
 
 type LinkContent = {
   linkTitle: string;

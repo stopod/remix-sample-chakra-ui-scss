@@ -3,12 +3,12 @@ import type { ActionFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Form, redirect, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
-import { LinkAccordion } from "../components/organisms/accordion";
-import { BasicTable } from "../components/organisms/table";
+import { LinkAccordion } from "../components/organisms/Accordion";
+import { BasicTable } from "../components/organisms/Table";
 import styles from "./styles/chakra.sample.module.scss";
 
-import { DefaultButton } from "~/components/atoms/button";
-import { InputForm } from "~/components/molecuels/inputForm";
+import { Button } from "~/components/atoms/Button";
+import { InputForm } from "~/components/molecuels/InputForm";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
@@ -121,7 +121,7 @@ export default function Sample() {
                 </option>
               ))}
             </Select>
-            <DefaultButton onClick={handleClick}>抽出</DefaultButton>
+            <Button onClick={handleClick}>抽出</Button>
           </div>
           <BasicTable
             tableHeader={{ headers: ["userId", "id", "title", "body"] }}

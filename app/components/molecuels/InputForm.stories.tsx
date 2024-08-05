@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./Button";
+import { InputForm } from "./InputForm";
 
 const meta = {
-  title: "SampleProject/Button",
-  component: Button,
+  title: "SampleProject/InputForm",
+  component: InputForm,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof InputForm>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: "Button",
-    type: "button",
-    onClick: () => alert("Clicked"),
+    placeholder: "入力してください",
+    name: "sample",
   },
 };
