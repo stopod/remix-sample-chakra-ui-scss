@@ -7,7 +7,7 @@ import { LinkAccordion } from "../components/organisms/Accordion";
 import { BasicTable } from "../components/organisms/Table";
 import styles from "./styles/chakra.sample.module.scss";
 
-import { Button } from "~/components/atoms/Button";
+import { Button } from "~/components/atoms/button/Button";
 import { InputForm } from "~/components/molecuels/InputForm";
 
 export const action = async ({ request }: ActionFunctionArgs) => {

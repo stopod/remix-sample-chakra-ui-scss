@@ -1,5 +1,5 @@
 import { Input } from "@chakra-ui/react";
-import { Button } from "~/components/atoms/Button";
+import { Button } from "~/components/atoms/button/Button";
 
 type InputFromProps = {
   children?: React.ReactNode;
